@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <title>app fasi</title>
+   <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+   <link rel="stylesheet" href="./bootstrap.min.css">
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <div class="constainer p-4">
+      <div class="draggable d-flex bg-primary">
+         <div class="draggable-header flex-grow-1">asd</div>
+         <div class="d-flex flex-column justify-content-between">
+            <button id="minBtn" class="btn btn-secondary btn-sm">&#8211;</button>
+         </div>
+         <div class="d-flex flex-column justify-content-between">   
+            <button id="maxBtn" class="btn btn-secondary btn-sm">&#x1F5D6;</button>
+         </div>
+         <div class="d-flex flex-column justify-content-between">      
+            <button id="closeBtn" class="btn btn-secondary btn-sm">&#xd7;</button>
+         </div>
+      </div>
+      
+      
+      <div class="row">
+         <div class="col-md-12">
+            <table class="table table-hover">
+               <thead>
+                  <tr>
+                     <th scope="col">Nombre</th>
+                     <th scope="col">Apellido</th>
+                     <th scope="col">Email</th>
+                     <th scope="col">Observaciones</th>
+                     <th scope="col" class="w-auto">Orden Creada</th>
+                  </tr>
+               </thead>
+               <tbody id="ordenes">
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+   <!-- <script src="./preload.js"></script>   -->
+</body>
+
+</html>

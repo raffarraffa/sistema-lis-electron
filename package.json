@@ -1,0 +1,45 @@
+{
+  "name": "sistema-lis",
+  "version": "1.0.0",
+  "description": "app desktop",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon --exec electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "Rafa Lopez",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.2.2",
+    "electron-builder": "^24.9.1",
+    "nodemon": "^3.0.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.2",
+    "mysql": "^2.18.1"
+  },
+  "build": {
+    "appId": "com.sistema.lis",
+    "productName": "SistemaLis",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "favicon.ico"
+    }
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "dist/",
+      "node_modules/"
+    ],
+    "watch": [
+      "main.js",
+      "index.js",
+      "database.js"
+    ]
+  }
+}
