@@ -7,15 +7,32 @@ window.onload = function () {
    ordenes = document.getElementById("ordenes");
    minbtn=document.getElementById("minBtn");
    minbtn.addEventListener("click", () => {
-      console.log("ordenes");
-      renderGetMinBtn();
-      //ipcRenderer.invoke()
-//      window.minimize();
+      console.log("minbtn");
+      renderGetMinBtn();      
+   });
+   maxbtn=document.getElementById("maxBtn");
+   maxbtn.addEventListener("click", () => {
+      console.log("masxbtn");
+      renderGetMaxBtn();      
+   });
+   closebtn=document.getElementById("closeBtn");
+   closebtn.addEventListener("click", () => {
+      console.log("closebtn");
+      renderGetCloseBtn();      
    });
    renderGetOrdenes();
 };
+// invocaicon electron (puente)
 function renderGetMinBtn() {
    ipcRenderer.invoke("getMinBtn");
+
+}
+function renderGetMaxBtn() {
+   ipcRenderer.invoke("getMaxBtn");
+
+}
+function renderGetCloseBtn() {
+   ipcRenderer.invoke("getCloseBtn");
 
 }
 async function renderGetOrdenes() {

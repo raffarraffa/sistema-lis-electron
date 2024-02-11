@@ -29,8 +29,20 @@ app.on('activate', () => {
   }
 })
 ipcMain.handle('getMinBtn', () => {
-   console.log('Recibido evento getMinBtn');
-   win.minimize();
+    console.log('Recibido evento getMinBtn');
+    win.minimize();
+  });
+ipcMain.handle('getMaxBtn', () => {
+    console.log('Recibido evento getMaxBtn');
+    if (win.isMaximized()) {
+      win.restore();
+    } else {
+      win.maximize();
+    }
+  });
+ipcMain.handle('getCloseBtn', () => {
+    console.log('Recibido evento getCloseBtn');
+    app.quit();
   });
 ipcMain.handle('get', () => {
   getOrdenes();
@@ -39,21 +51,6 @@ ipcMain.on('toggleDrag', (event, enableDrag) => {
   win.webContents.send('toggleDrag', enableDrag);
 });
 
-ipcMain.on('minimizeWindow', () => {
-  win.minimize();
-});
-
-ipcMain.on('maximizeWindow', () => {
-  if (win.isMaximized()) {
-    win.restore();
-  } else {
-    win.maximize();
-  }
-});
-
-ipcMain.on('closeWindow', () => {
-  app.quit();
-});
 function getOrdenes() {
   db.query("SELECT p.nombre as nombre, p.apellido as apellido, p.email as email, o.`observaciones` as observaciones, o.`createdAt` as creado FROM orden AS o JOIN paciente AS p ON p.id = o.id_paciente;", (error, results, fields) => {
     if (error) {
